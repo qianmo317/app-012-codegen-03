@@ -33,12 +33,149 @@
       font-size: 24px;
       pointer-events: none;
     }
+    #conversion-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 20;
+      background: #6b4e23;
+      color: #f5e6d3;
+      border: 2px solid #d4a574;
+      border-radius: 4px;
+      padding: 8px 14px;
+      font-size: 14px;
+      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+      cursor: pointer;
+    }
+    #conversion-toggle:hover { background: #8b6914; }
+    .cv-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 430px;
+      max-width: 96vw;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 15;
+      background: #241b10;
+      color: #f5e6d3;
+      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.5);
+      padding: 12px;
+      box-sizing: border-box;
+      font-size: 14px;
+      font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    }
+    .cv-hidden { display: none; }
+    .cv-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #d4a574;
+      margin-bottom: 10px;
+    }
+    .cv-header small { font-size: 12px; color: #b89a72; font-weight: normal; }
+    .cv-close {
+      background: none;
+      border: none;
+      color: #d4a574;
+      font-size: 22px;
+      cursor: pointer;
+    }
+    .cv-section {
+      border: 1px solid #6b4e23;
+      border-radius: 4px;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    .cv-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .cv-row label { color: #b89a72; white-space: nowrap; }
+    .cv-panel input, .cv-panel select {
+      background: #1a1208;
+      color: #f5e6d3;
+      border: 1px solid #6b4e23;
+      border-radius: 3px;
+      padding: 5px 6px;
+      font-size: 13px;
+      min-width: 0;
+    }
+    .cv-panel input[type="number"] { width: 64px; }
+    .cv-panel .cv-herb { width: 90px; }
+    .cv-panel .cv-rxid { width: 150px; }
+    .cv-panel .cv-operator { width: 90px; }
+    .cv-panel .cv-ruleset { flex: 1; }
+    .cv-panel button {
+      background: #6b4e23;
+      color: #f5e6d3;
+      border: 1px solid #d4a574;
+      border-radius: 3px;
+      padding: 5px 10px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .cv-panel button:hover { background: #8b6914; }
+    .cv-hint { color: #8a7a5f; font-size: 12px; padding: 2px 0; }
+    .cv-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3px 4px;
+      border-bottom: 1px dashed #4a3a22;
+    }
+    .cv-record {
+      border: 1px solid #6b4e23;
+      border-radius: 4px;
+      padding: 8px;
+      margin-bottom: 10px;
+      background: #2d2418;
+    }
+    .cv-record-head { font-weight: bold; color: #d4a574; margin-bottom: 2px; }
+    .cv-record-meta { color: #b89a72; font-size: 12px; margin-bottom: 6px; }
+    .cv-panel table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+    .cv-panel th, .cv-panel td {
+      border: 1px solid #4a3a22;
+      padding: 4px 6px;
+      text-align: left;
+    }
+    .cv-panel th { background: #3a2d1a; color: #d4a574; }
+    .cv-over td { background: rgba(180, 40, 40, 0.25); }
+    .cv-over-text { color: #ff7b6b; font-weight: bold; }
+    .cv-warn {
+      background: rgba(180, 40, 40, 0.3);
+      border: 1px solid #b02828;
+      color: #ffb3a6;
+      border-radius: 3px;
+      padding: 5px 8px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    .cv-reduce { margin-bottom: 6px; }
+    .cv-plan {
+      border-top: 1px dashed #6b4e23;
+      margin-top: 6px;
+      padding-top: 6px;
+    }
+    .cv-plan-head { color: #9fc5a8; font-size: 12px; margin-bottom: 4px; }
   </style>
 </head>
 <body>
   <div id="game-container">
     <canvas id="game-canvas"></canvas>
   </div>
+  <button id="conversion-toggle" type="button">老方换算</button>
+  <div id="conversion-panel"></div>
   <div id="loading">正在准备药房...</div>
   <script type="module" src="/src/main.ts"></script>
 </body>
